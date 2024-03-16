@@ -35,6 +35,12 @@ button[type="button"] {
     padding-left: 40px;
 }
 
+.global-header .container [href$=".html"]:hover,
+.global-header .container [href$=".html"]:focus {
+    color: #404BBF;
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 a {
     text-decoration: none;
 }
@@ -59,6 +65,7 @@ h4 {
     justify-content: center;
     background-color: #ffffff;
     border: 1px solid #E7E9FC;
+    box-shadow: 0 1px 6px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 2px 1px 0 rgba(46, 47, 66, 0.08);
 }
 
 .nav-bar {
@@ -76,21 +83,29 @@ h4 {
     line-height: 1.5;
 }
 
-.another-contact{
-        list-style: none;
-            font-weight: 500;
-            color: var(--subtitle-color);
-            display: inline-flex;
-            justify-content: center;
+.nav-list a.active {
+    border-bottom: 4px solid #404BBF;
+    ;
+    padding-bottom: 16px;
 }
 
-[href$=".html"]:hover {
-    color: #404BBF;
+.another-contact {
+    list-style: none;
+    font-weight: 500;
+    color: var(--subtitle-color);
+    display: inline-flex;
+    justify-content: center;
 }
 
-[href$=".html"]:focus {
-    color: #404BBF;
+.nav-list [href$=".html"]:visited {
+    color: var(--subtitle-color);
 }
+
+.nav-list a {
+    outline: none;
+}
+
+
 
 /* PHONE AND EMAIL COLOR */
 
@@ -106,13 +121,14 @@ h4 {
     color: var(--text-color)
 }
 
-.contact>li>a:hover {
-    color: #404BBF;
-}
-
+.contact>li>a:hover,
 .contact>li>a:focus {
     color: #404BBF;
+    transition: 250ms;
+    outline: none;
 }
+
+
 
 .address {
     line-height: 1.5;
@@ -146,6 +162,13 @@ h4 {
     font-size: 18px;
 }
 
+.footer .container [href$=".html"]:hover,
+.footer .container [href$=".html"]:focus {
+    color: #404BBF;
+    outline: none;
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .container h4 {
     font-family: var(--title-font-family);
     font-weight: 500;
@@ -177,9 +200,13 @@ h4 {
     align-items: center;
 }
 
-.social-media-footer :hover {
+.social-media-footer :hover,
+.social-media-footer :focus {
     background-color: #10A5F5;
+    outline: none;
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 /* Portofolio only */
 .portofolio-buttons {
     text-align: center;
@@ -200,10 +227,42 @@ h4 {
     margin-top: 72px;
 }
 
+.img-overlay {
+    position: relative;
+    overflow: hidden;
+}
+
+.overlay {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    height: 300px;
+    width: 360px;
+    background-color: #4D5AE5;
+    ;
+    opacity: 1;
+    transform: translateY(102%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.img-overlay:hover .overlay {
+    transform: translateY(0px);
+}
+
+.text-overlay {
+    color: #F4F4FD;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 32px 164px 32px;
+}
+
 .portofolio-list-one>li:hover,
-.portofolio-list-one>li:active{
+.portofolio-list-one>li:active {
     box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
-        background: #ffffff;
+    background: #ffffff;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portofolio-list-one>li>h4 {
@@ -231,6 +290,7 @@ h4 {
 .portofolio-list-two>li:active {
     box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
     background: #ffffff;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portofolio-list-two>li>h4 {
@@ -255,9 +315,10 @@ h4 {
 }
 
 .portofolio-list-three>li:hover,
-.portofolio-list-three>li:active{
+.portofolio-list-three>li:active {
     box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
     background: #ffffff;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portofolio-list-three>li>h4 {
@@ -292,10 +353,40 @@ h4 {
     line-height: 1.5;
 }
 
-.all-button:hover {
+.all-button:hover,
+.all-button:focus {
     background-color: #404BBF;
     color: #ffffff;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    transform: scale(1.1);
 }
+
+.all-button:not(:hover),
+.all-button:not(:focus) {
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.web-button:not(:hover),
+.web-button:not(:focus){
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.app-button:not(:hover),
+.app-button:not(:focus) {
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.design-button:not(:hover),
+.design-button:not(:focus) {
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.marketing-button:not(:hover),
+.marketing-button:not(:focus) {
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 
 .web-button {
     font-family: var(--title-font-family);
@@ -312,9 +403,13 @@ h4 {
     line-height: 1.5;
 }
 
-.web-button:hover {
+.web-button:hover,
+.web-button:focus {
     background-color: #404BBF;
     color: #ffffff;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    transform: scale(1.1);
 }
 
 .app-button {
@@ -332,9 +427,13 @@ h4 {
     line-height: 1.5;
 }
 
-.app-button:hover {
+.app-button:hover,
+.app-button:focus {
     background-color: #404BBF;
     color: #ffffff;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    transform: scale(1.1);
 }
 
 .design-button {
@@ -352,9 +451,13 @@ h4 {
     line-height: 1.5;
 }
 
-.design-button:hover {
+.design-button:hover,
+.design-button:focus {
     background-color: #404BBF;
     color: #ffffff;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    transform: scale(1.1);
 }
 
 .marketing-button {
@@ -372,15 +475,19 @@ h4 {
     line-height: 1.5;
 }
 
-.marketing-button:hover {
+.marketing-button:hover,
+.marketing-button:focus {
     background-color: #404BBF;
     color: #ffffff;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    transform: scale(1.1);
 }
 
-.list-border>div>ul>li{
-   border: 1px solid #E7E9FC;
+.list-border>div>ul>li {
+    border: 1px solid #E7E9FC;
 }
 
-.list-border{
+.list-border {
     margin-bottom: 120px;
 }
